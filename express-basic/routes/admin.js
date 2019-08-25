@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const route = express.Router();
 
-route.use('/add-product', (req, res, next) => {
+route.get('/add-product', (req, res, next) => {
     res.send(
         "<form action='/validate' method='POST'><input type='text' name='title'/><button type=submit>Add</button>"
     );
