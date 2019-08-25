@@ -1,0 +1,23 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "ini adalah basic dari nodeJs complete guide",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nersus15/nodeJs-complete-guide.git"
+  },
+  "keywords": [
+    "basic"
+  ],
+  "author": "fathurrahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nersus15/nodeJs-complete-guide/issues"
+  },
+  "homepage": "https://github.com/nersus15/nodeJs-complete-guide#readme"
+}
