@@ -1,20 +1,26 @@
 // import packages, middleware, etc...
-const express = require('express');
-const bodyParser = require('body-parser');
-const adminRoute = require('./routes/admin');
-const shopRoute = require('./routes/shop');
+const path = require( 'path' )
+const rootDir = require( './utils/path' );
+const express = require( 'express' );
+const bodyParser = require( 'body-parser' );
+const adminRoute = require( './routes/admin' );
+const shopRoute = require( './routes/shop' );
 // ...
+
 
 const app = express();
 
 // use middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/admin', adminRoute) // route is /admin/<adminRoute>
-app.use(shopRoute)
+app.use( bodyParser.urlencoded( { extended: false } ) );
+app.use( '/admin', adminRoute ) // route is /admin/<adminRoute>
+app.use( shopRoute )
 
-app.use((req, res, next) => {
-    res.status(404).send("<h1>Page not Found</h1>");
-})
+// use static file
+// bootstrap file
+app.use( express.static( path.join( rootDir, '/node_modules/bootstrap/dist' ) ) )
+app.use( ( req, res, next ) => {
+    res.sendFile( path.join( rootDir, 'views', '404.htm' ) );
+} )
 
 // custom port to running this app
-app.listen(3002)
+app.listen( 3002 )
