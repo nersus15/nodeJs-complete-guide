@@ -5,15 +5,18 @@ const fs = require('fs');
 
 const route = express.Router();
 
+// /admin/add-product => GET
 route.get('/add-product', (req, res, next) => {
     res.send(
-        "<form action='/validate' method='POST'><input type='text' name='title'/><button type=submit>Add</button>"
+        "<form action='/admin/add-product' method='POST'><input type='text' name='title'/><button type=submit>Add</button>"
     );
 });
-route.post('/validate', (req, res, next) => {
+
+// /admin/add-product => POST
+route.post('/add-product', (req, res, next) => {
     console.log(req.body.title)
     fs.writeFile('file out/Products.txt', 'Title: ' + req.body.title, () => {
-        return res.redirect('/add-product');
+        return res.redirect('/admin/add-product');
     });
 });
 

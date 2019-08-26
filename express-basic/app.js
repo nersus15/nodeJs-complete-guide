@@ -9,7 +9,7 @@ const app = express();
 
 // use middleware
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(adminRoute)
+app.use('/admin', adminRoute) // route is /admin/<adminRoute>
 app.use(shopRoute)
 
 app.use((req, res, next) => {
