@@ -3,7 +3,7 @@ const path = require( 'path' )
 const rootDir = require( './utils/path' );
 const express = require( 'express' );
 const bodyParser = require( 'body-parser' );
-const adminRoute = require( './routes/admin' );
+const { adminRoutes } = require( './routes/admin' );
 const shopRoute = require( './routes/shop' );
 // ...
 
@@ -12,7 +12,7 @@ const app = express();
 
 // use middleware
 app.use( bodyParser.urlencoded( { extended: false } ) );
-app.use( '/admin', adminRoute ) // route is /admin/<adminRoute>
+app.use( '/admin', adminRoutes ) // route is /admin/<adminRoute>
 app.use( shopRoute )
 
 // use static file
