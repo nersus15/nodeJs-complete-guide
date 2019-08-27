@@ -12,7 +12,7 @@ const route = express.Router();
 
 // /admin/add-product => GET
 route.get( '/add-product', ( req, res, next ) => {
-    res.sendFile( path.join( rootDir, 'views', 'admin', 'add-product.htm' ) );
+    res.render( 'admin/add-product', { path: '/admin/add-product' } )
 } );
 
 // /admin/add-product => POST
@@ -22,5 +22,5 @@ route.post( '/add-product', ( req, res, next ) => {
 } );
 
 exports.adminRoutes = route;
-exports.products = products;
+exports.productData = products;
 
