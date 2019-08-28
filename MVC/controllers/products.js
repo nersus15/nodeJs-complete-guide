@@ -9,6 +9,8 @@ exports.addProduct = ( req, res, next ) => {
 }
 
 exports.fetchProducts = ( req, res, next ) => {
-    const productData = Product.fetchAll();
-    res.render( 'shop/index', { products: productData, path: '/' } )
+    Product.fetchAll( ( productData ) => {
+        res.render( 'shop/index', { products: productData, path: '/' } )
+    } );
+
 }
