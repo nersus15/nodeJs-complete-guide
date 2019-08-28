@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="/css/bootstrap.css")
+    body
+        header
+            nav.navbar.navbar-expand-lg.bg-dark.navbar-dark
+                a.navbar-brand(href="/") My Shop
+                button.navbar-toggler(data-toggle="collapse" data-target="#navbarSupportedContent")
+                    span.navbar-toggler-icon
+                div.collapse.navbar-collapse#navbarSupportedContent
+                    ul.navbar-nav.mr-auto
+                        li.nav-item
+                            a.nav-link(href="/",class=(path === '/' ? 'active':'')) Home
+                        li.nav-item
+                            a.nav-link(href="/admin/add-product", class=(path === '/admin/add-product' ? 'active':'')) Add Product
+                    form.form-inline.my-2.my-lg-0(action="")
+                        input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
+                        button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
+        main
+            block content
+            
+            
