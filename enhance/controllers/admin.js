@@ -7,10 +7,3 @@ exports.addProduct = ( req, res, next ) => {
     product.save();
     return res.redirect( '/admin/add-product' );
 }
-
-exports.fetchProducts = ( req, res, next ) => {
-    Product.fetchAll( ( productData ) => {
-        res.render( 'shop/index', { products: productData, path: '/' } )
-    } );
-
-}
