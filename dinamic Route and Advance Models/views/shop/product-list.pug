@@ -1,0 +1,20 @@
+extends ../layouts/main-layout.pug
+
+block content
+    if products.length ==0
+        h1 You don't have any product yet.
+    else
+        each product in products
+            div.product(style="display:inline-block")
+                .card(style="width: 18rem; margin:5rem 1rem; align-content:center; text-align:center")
+                    h5.card-title #{product.title}
+                    img.card-img-top(src="/img/productThumb.jpg" alt="Product Thumbnail")
+                    .card-body                   
+                        p.card-text(style="font-weight:bold") Rp. #{product.price}
+                        p.card-text #{product.description}
+                         form(action='/add-to-cart' method='POST') 
+                            .form-group
+                                button.btn.btn-outline-primary Add to Cart
+                
+            
+            
