@@ -13,9 +13,7 @@ route.get( '/add-product', ( req, res, next ) => {
     res.render( 'admin/add-product', { path: '/admin/add-product', pageTitle: 'Admin || Add-Product' } )
 } );
 // /admin/products => GET
-route.get( '/products', ( req, res, next ) => {
-    res.render( 'admin/products', { path: '/admin/products', pageTitle: 'Admin || My Products' } )
-} );
+route.get( '/products', adminController.getProducts );
 
 // /admin/add-product => POST
 route.post( '/add-product', adminController.addProduct );

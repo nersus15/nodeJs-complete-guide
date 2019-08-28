@@ -14,8 +14,10 @@ const getProductFromFile = ( callBack ) => {
     } )
 }
 module.exports = class product {
-    constructor( title ) {
+    constructor( title, description, price ) {
         this.title = title;
+        this.description = description;
+        this.price = price;
     }
 
     static fetchAll( callBack ) {

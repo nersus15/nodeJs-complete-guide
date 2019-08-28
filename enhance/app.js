@@ -22,8 +22,8 @@ app.use( shopRoute )
 // ...
 
 // use static file
-// bootstrap file
 app.use( express.static( path.join( rootDir, '/node_modules/bootstrap/dist' ) ) );
+app.use( express.static( path.join( rootDir, '/node_modules/jquery/dist' ) ) );
 app.use( express.static( path.join( rootDir, '/public' ) ) );
 // ...
 

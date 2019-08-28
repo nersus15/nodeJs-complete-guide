@@ -1,0 +1,44 @@
+extends ../layouts/main-layout.pug
+
+block content
+    //- modals
+    .modal.fade#exampleModal(tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title#ProductModalHeader Edit Product
+                    button.close(type="button", data-dismiss="modal", aria-label="Close")
+                    span(aria-hidden="true") &times;
+                .modal-body
+                    form(action="/admin/add-product", style='margin:2rem 5rem' method="POST")
+                        .form-group
+                            label(for="title") Your Product Title:
+                            input.form-control(type="text", name="title", id="title", placeholder="ex. My Product")
+                        .form-group
+                            label(for="description") Your Product Description:
+                            textarea.form-control(cols="30", rows="5", name="description", id="description", placeholder="ex. this is my product")
+                        .form-group
+                            label(for="price") Your Product Price:
+                            input.form-control(type="number", name="price", id="price", placeholder="ex. 1000")       
+                .modal-footer
+                    button.btn.btn-secondary(type="button", data-dismiss="modal") Cancel
+                    button.btn.btn-primary(type="button" ) Save changes
+        //- end modals
+
+    if products.length ==0
+        h1 You don't have any product yet.
+    else
+        each product in products
+            div.product(style="display:inline-block")
+                .card(style="width: 18rem; margin:5rem 1rem; align-content:center; text-align:center")
+                    h5.card-title #{product.title}
+                    img.card-img-top(src="/img/productThumb.jpg" alt="Product Thumbnail")
+                    .card-body                   
+                        p.card-text(style="font-weight:bold") Rp. #{product.price}
+                        p.card-text #{product.description}
+                        form(action='/admin/delete-product' method='POST')
+                            //- a.btn.btn-outline-warning(href="/admin/edit-product" data-toggle="modal" data-target="#exampleModal") Edit 
+                            .form-group
+                                a.btn.btn-outline-warning(href="/admin/edit-product") Edit
+                                button.btn.btn-outline-danger(type='submit') Delete
+                

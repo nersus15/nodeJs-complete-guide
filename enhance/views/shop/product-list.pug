@@ -10,9 +10,11 @@ block content
                     h5.card-title #{product.title}
                     img.card-img-top(src="/img/productThumb.jpg" alt="Product Thumbnail")
                     .card-body                   
-                        p.card-text(style="font-weight:bold") Rp. 1.024.000
-                        p.card-text Some quick example text to build on the card title and make up the bulk of the card's content
-                        a.btn.btn-outline-primary(href="") Add to Cart
+                        p.card-text(style="font-weight:bold") Rp. #{product.price}
+                        p.card-text #{product.description}
+                         form(action='/add-to-cart' method='POST') 
+                            .form-group
+                                button.btn.btn-outline-primary Add to Cart
                 
             
             

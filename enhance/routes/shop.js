@@ -7,7 +7,8 @@ const route = express.Router();
 
 route.get( '/', shopController.getIndex );
 route.get( '/products', shopController.getProducts );
-route.get( '/cart' );
+route.get( '/cart', shopController.getCart );
+route.get( '/order', shopController.getOrder );
 route.get( '/checkout' );
 
 module.exports = route;

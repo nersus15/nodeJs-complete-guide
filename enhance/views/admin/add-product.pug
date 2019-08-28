@@ -1,10 +1,18 @@
 extends ../layouts/main-layout.pug
 
 block content
-    form.col-3(action="/admin/add-product", method="POST")
+    h2(style='margin:1rem') Add new product
+    hr(style='width: 30%;border:1px solid black;margin:0 1rem')
+    form.col-3(action="/admin/add-product", style='margin:2rem 5rem' method="POST")
         .form-group
             label(for="title") Your Product Title:
             input.form-control(type="text", name="title", id="title", placeholder="ex. My Product")
+        .form-group
+            label(for="description") Your Product Description:
+            textarea.form-control(cols="30", rows="5", name="description", id="description", placeholder="ex. this is my product")
+        .form-group
+            label(for="price") Your Product Price:
+            input.form-control(type="number", name="price", id="price", placeholder="ex. 1000")
         .form-group
             button.btn.btn-outline-primary(type="submit") Add
             

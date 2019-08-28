@@ -25,3 +25,33 @@ exports.getIndex = ( req, res, next ) => {
         } );
     } );
 }
+// render cart page
+exports.getCart = ( req, res, next ) => {
+    productModel.fetchAll( ( productData ) => {
+        res.render( 'shop/cart', {
+            products: productData,
+            path: '/cart',
+            pageTitle: 'My Cart'
+        } );
+    } );
+}
+// render order page
+exports.getOrder = ( req, res, next ) => {
+    productModel.fetchAll( ( productData ) => {
+        res.render( 'shop/order', {
+            products: productData,
+            path: '/order',
+            pageTitle: 'My Order'
+        } );
+    } );
+}
+// render checkout page
+exports.getCheckout = ( req, res, next ) => {
+    productModel.fetchAll( ( productData ) => {
+        res.render( 'shop/checkout', {
+            products: productData,
+            path: '/checkout',
+            pageTitle: 'Checkout'
+        } );
+    } );
+}
