@@ -1,14 +1,14 @@
 // import packages, modules, etc...
 const express = require('express');
+const rootDir = require('../utils/path');
+const path = require('path')
 const fs = require('fs');
 // ...
 
 const route = express.Router();
 
 route.get('/', (req, res, next) => {
-    res.send(
-        "<h1>Welcome to My E-Commerce Website </h1>"
-    );
+    res.sendFile(path.join(rootDir, 'views', 'shop', 'index.htm'));
 });
 
 

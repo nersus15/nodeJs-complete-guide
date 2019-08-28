@@ -1,0 +1,10 @@
+extends ../layouts/main-layout.pug
+
+block content
+    form.col-3(action="/admin/add-product", method="POST")
+        .form-group
+            label(for="title") Your Product Title:
+            input.form-control(type="text", name="title", id="title", placeholder="ex. My Product")
+        .form-group
+            button.btn.btn-outline-primary(type="submit") Add
+            
